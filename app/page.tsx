@@ -25,56 +25,56 @@ type Photo = {
 const PHOTOS: Photo[] = [
   {
     id: "together",
-    src: "/photos/graduation-together.jpg",
-    filename: "graduacion-01-siempre.jpg",
-    title: "Siempre",
-    caption: "Junto a quienes estuvieron siempre",
-    alt: "Graduado acompañado durante la celebración",
+    src: "/photos/photo1.jpg",
+    filename: "photo1.jpg",
+    title: ":)",
+    caption: "Imagen 1 de 6",
+    alt: "1",
     shape: "portrait",
   },
   {
     id: "group",
-    src: "/photos/graduation-group.jpg",
-    filename: "graduacion-02-juntos.jpg",
+    src: "/photos/photo2.jpg",
+    filename: "photo2.jpg",
     title: "Juntos",
-    caption: "La alegría de celebrar juntos",
-    alt: "Grupo de familiares y graduados celebrando",
+    caption: "Imagen 2 de 6",
+    alt: "2",
     shape: "wide",
   },
   {
     id: "family",
-    src: "/photos/graduation-family.jpg",
-    filename: "graduacion-03-orgullo.jpg",
+    src: "/photos/photo3.jpg",
+    filename: "photo3.jpg",
     title: "Orgullo",
-    caption: "El orgullo de compartir el camino",
-    alt: "Graduado junto a un familiar",
+    caption: "Imagen 3 de 6",
+    alt: "3",
     shape: "standard",
   },
   {
     id: "diploma",
-    src: "/photos/graduation-diploma.jpg",
-    filename: "graduacion-04-logro.jpg",
+    src: "/photos/photo4.jpg",
+    filename: "photo4.jpg",
     title: "Logro",
-    caption: "El instante que lo cambió todo",
-    alt: "Graduado recibiendo su diploma en el escenario",
+    caption: "Imagen 4 de 6",
+    alt: "4",
     shape: "wide",
   },
   {
     id: "signing",
-    src: "/photos/graduation-signing.jpg",
-    filename: "graduacion-05-futuro.jpg",
+    src: "/photos/photo5.jpg",
+    filename: "photo5.jpg",
     title: "Futuro",
-    caption: "Una firma, un nuevo comienzo",
-    alt: "Graduado firmando el libro ceremonial",
+    caption: "Imagen 5 de 6",
+    alt: "5",
     shape: "wide",
   },
   {
     id: "portrait",
-    src: "/photos/graduation-portrait.jpg",
-    filename: "graduacion-06-comienzo.jpg",
+    src: "/photos/photo6.jpg",
+    filename: "photo6.jpg",
     title: "Comienzo",
-    caption: "Retrato de una nueva etapa",
-    alt: "Retrato formal del graduado con toga y medalla",
+    caption: "Imagen 6 de 6",
+    alt: "6",
     shape: "portrait",
   },
 ];
@@ -456,10 +456,10 @@ export default function Home() {
 
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow"><span aria-hidden="true" />Promoción 2026 · 6 fotografías</p>
-            <h1 id="hero-title">Un día que queda<br />para siempre.</h1>
+            <p className="eyebrow"><span aria-hidden="true" />Fotos 2025 · 6 fotografías</p>
+            {/* <h1 id="hero-title">Un día que queda<br />para siempre.</h1> */}
             <p className="hero-lede">
-              Una colección íntima para revivir, compartir y conservar cada instante de la graduación.
+              Una colección de recuerdos de graduación para explorar, ampliar, descargar e imprimir.
             </p>
             <div className="hero-buttons">
               <button
@@ -478,8 +478,8 @@ export default function Home() {
               </button>
             </div>
             <div className="story-note">
-              <span className="story-number">26</span>
-              <span>Graduación · Una historia en seis cuadros</span>
+              <span className="story-number">25</span>
+              <span>Graduación · 6 imagenes</span>
             </div>
           </div>
 
@@ -504,7 +504,7 @@ export default function Home() {
                 <strong>{String(activeIndex + 1).padStart(2, "0")} / 06</strong>
               </span>
             </button>
-            <div className="date-sticker" aria-hidden="true">PROMOCIÓN<br />2026</div>
+            <div className="date-sticker" aria-hidden="true">PROMOCIÓN<br />2025</div>
           </div>
         </section>
 
@@ -512,7 +512,7 @@ export default function Home() {
           <div className="gallery-heading">
             <div>
               <p className="section-kicker">La colección</p>
-              <h2 id="gallery-title">Pequeños instantes,<br />una gran historia.</h2>
+              {/* <h2 id="gallery-title">Pequeños instantes,<br />una gran historia.</h2> */}
             </div>
             <div className="gallery-intro">
               <p>Abre una fotografía para verla a pantalla completa o selecciónala para descargarla e imprimirla.</p>
@@ -564,7 +564,7 @@ export default function Home() {
 
         <footer className="site-footer">
           <span>MOMENTOS.</span>
-          <p>Hecho para volver a este día, una y otra vez.</p>
+          {/* <p>Hecho para volver a este día, una y otra vez.</p> */}
           <a href="#top">Volver arriba ↑</a>
         </footer>
 
