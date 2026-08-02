@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- The gallery uses direct photo assets for zoom, downloads, and printing. */
+
 import {
   useCallback,
   useEffect,
@@ -207,7 +209,7 @@ export default function Home() {
       document.body.style.overflow = previousOverflow;
       if (background) {
         background.inert = false;
-        if (previousAriaHidden === null) background.removeAttribute("aria-hidden");
+        if (previousAriaHidden == null) background.removeAttribute("aria-hidden");
         else background.setAttribute("aria-hidden", previousAriaHidden);
       }
       window.removeEventListener("keydown", handleKeyDown);

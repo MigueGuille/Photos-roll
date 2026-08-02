@@ -1,98 +1,63 @@
-# vinext-starter
+# MOMENTOS. — Galería de graduación
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Galería responsive creada con Next.js. Permite ampliar las fotografías, navegar con gestos o teclado, seleccionar varias, descargarlas en un ZIP e imprimirlas.
 
-## Prerequisites
+## Requisitos
 
-- Node.js `>=22.13.0`
+- Node.js 20.9 o superior. Se recomienda Node.js 22.
+- npm 10 o superior.
 
-## Quick Start
+No necesita base de datos, variables de entorno ni servicios externos.
+
+## Probarla en tu computadora
 
 ```bash
-npm install
+npm ci
 npm run dev
+```
+
+Abre `http://localhost:3000`.
+
+## Subirla a Vercel — opción recomendada
+
+1. Sube esta carpeta a un repositorio nuevo de GitHub.
+2. Entra en [vercel.com](https://vercel.com), inicia sesión y pulsa **Add New → Project**.
+3. Importa el repositorio.
+4. Vercel reconocerá **Next.js** automáticamente. No agregues variables de entorno ni cambies los comandos.
+5. Pulsa **Deploy**.
+
+También puedes publicarla desde esta carpeta con la herramienta de Vercel:
+
+```bash
+npx vercel
+```
+
+## Subirla a Railway
+
+1. Sube esta carpeta a GitHub.
+2. Entra en [railway.app](https://railway.app) y elige **New Project → Deploy from GitHub repo**.
+3. Selecciona el repositorio. Railway utilizará automáticamente el `Dockerfile` incluido.
+4. Cuando termine, abre **Settings → Networking → Generate Domain** para obtener el enlace público.
+
+No necesitas configurar variables. Railway asignará el puerto automáticamente.
+
+## Comprobaciones disponibles
+
+```bash
 npm run build
+npm test
+npm run lint
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Cambiar las fotografías
 
-## Included Shape
+Las imágenes están en `public/photos`. Para sustituirlas sin tocar el código, conserva estos nombres:
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+- `graduation-together.jpg`
+- `graduation-group.jpg`
+- `graduation-family.jpg`
+- `graduation-diploma.jpg`
+- `graduation-signing.jpg`
+- `graduation-portrait.jpg`
 
-## Workspace Auth Headers
-
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+Se recomiendan archivos JPEG estándar, orientados correctamente y con un lado largo de hasta 3600 píxeles para equilibrar impresión y velocidad.
